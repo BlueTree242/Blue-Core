@@ -1,0 +1,11 @@
+me\bluetree\core\PlayerUser.class
+me\bluetree\core\User.class
+me\bluetree\core\Command.class
+me\bluetree\core\CrossPlatformPlugin.class
+me\bluetree\core\ProxiedPlayerUser.class
+me\bluetree\core\ServerType.class
+me\bluetree\core\Cmd.class
+me\bluetree\core\BungeeCommandHandler.class
+me\bluetree\core\CmdSender.class
+me\bluetree\core\BukkitCommandHandler.class
+me\bluetree\core\ConsoleSender.class
