@@ -3,7 +3,7 @@ package me.bluetree.core;
 import org.bukkit.plugin.Plugin;
 
 public class CrossPlatformPlugin {
-    private ServerType serverType;
+    private static ServerType serverType;
     private Plugin MainClassBukkit;
     private net.md_5.bungee.api.plugin.Plugin MainClassBungee;
     public void register(Plugin plugin) {
@@ -35,5 +35,8 @@ public class CrossPlatformPlugin {
         } else {
             new BungeeCommandHandler(command, cmd, permission, aliases);
         }
+    }
+    private static ServerType getServerType() {
+        return serverType;
     }
 }
