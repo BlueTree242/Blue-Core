@@ -24,7 +24,7 @@ public abstract class CrossPlatformPlugin {
     public void onStop() {
 
     }
-    public void regiterCommand(Command command, String cmd) {
+    public void registerCommand(Command command, String cmd) {
         if (serverType != ServerType.Server) {
             throw new IllegalArgumentException("Not a bukkit plugin!");
         } else {
