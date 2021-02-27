@@ -13,7 +13,7 @@ public class BukkitCommandHandler implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
-            this.command.onCommand((CmdSender) User.from((Player) command), s, strings);
+            this.command.onCommand((CmdSender) User.from((Player) commandSender), s, strings);
         } else {
             this.command.onCommand((CmdSender) new ConsoleSender(), s, strings);
         }
