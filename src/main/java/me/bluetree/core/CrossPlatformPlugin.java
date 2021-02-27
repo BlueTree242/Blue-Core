@@ -28,7 +28,7 @@ public abstract class CrossPlatformPlugin {
         if (serverType != ServerType.Server) {
             throw new IllegalArgumentException("Not a bukkit plugin!");
         } else {
-            new BukkitCommandHandler(cmd, command);
+            MainClassBukkit.getServer().getPluginCommand(cmd).setExecutor(new BukkitCommandHandler(cmd, command));
         }
     }
     public void registerCommand(Command command, String cmd, String permission, String... aliases) {
