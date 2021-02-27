@@ -15,7 +15,7 @@ public class BukkitCommandHandler implements CommandExecutor {
         if (commandSender instanceof Player) {
             this.command.onCommand((CmdSender) User.from((Player) command), s, strings);
         } else {
-            this.command.onCommand((CmdSender) new ConsoleSender(commandSender), s, strings);
+            this.command.onCommand((CmdSender) new ConsoleSender(), s, strings);
         }
         return true;
     }

@@ -14,7 +14,7 @@ public class BungeeCommandHandler extends Command {
         if (commandSender instanceof ProxiedPlayer) {
             cmd.onCommand((CmdSender) User.from((ProxiedPlayer) commandSender), getName(), strings);
         }else {
-            cmd.onCommand((CmdSender) new ConsoleSender(commandSender), getName(), strings);
+            cmd.onCommand((CmdSender) new ConsoleSender(), getName(), strings);
         }
     }
 }
