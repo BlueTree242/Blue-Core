@@ -2,6 +2,8 @@ package me.bluetree.core;
 
 import org.bukkit.plugin.Plugin;
 
+import java.io.File;
+
 public abstract class CrossPlatformPlugin {
     private static ServerType serverType;
     private Plugin MainClassBukkit;
@@ -23,14 +25,14 @@ public abstract class CrossPlatformPlugin {
 
     }
     public void regiterCommand(Command command, String cmd) {
-        if (MainClassBukkit == null) {
+        if (serverType != ServerType.Server) {
             throw new IllegalArgumentException("Not a bukkit plugin!");
         } else {
-
+            new BukkitCommandHandler(cmd, command);
         }
     }
     public void registerCommand(Command command, String cmd, String permission, String... aliases) {
-        if (MainClassBungee == null) {
+        if (serverType != ServerType.Proxy) {
             throw new IllegalArgumentException("Not a bungee plugin!");
         } else {
             new BungeeCommandHandler(command, cmd, permission, aliases);
@@ -45,6 +47,30 @@ public abstract class CrossPlatformPlugin {
     public net.md_5.bungee.api.plugin.Plugin getMainClassBungee() {
         return MainClassBungee;
     }
+    public File getDataFolder() {
+        if (serverType != ServerType.Server) {
+            return MainClassBungee.getDataFolder();
+        } else {
+            return MainClassBukkit.getDataFolder();
+        }
+    }
+
+    public String getName() {
+        if (serverType == ServerType.Server) {
+            return MainClassBukkit.getName();
+        } else {
+            return MainClassBungee.getDescription().getName();
+        }
+    }
+    public String getVersion() {
+        if (serverType == ServerType.Server) {
+            return MainClassBukkit.getDescription().getVersion();
+        } else {
+            return MainClassBungee.getDescription().getVersion();
+        }
+    }
+
+
 
 
 }
